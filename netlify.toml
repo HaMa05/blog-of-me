@@ -1,8 +1,6 @@
 [build]
   base = "/"
   publish = "dist"
-[context.production]
-  publish = "output/"
 [[redirects]]
   from = "/*"
   to = "/index.html"
