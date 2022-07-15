@@ -2,7 +2,7 @@
 title: 'This is my second article!'
 description: 'Guess what? Nuxt content is awesome!'
 img: 'img/cover (2).JPG'
-tags: [Nuxt, Content, Learning, second]
+tags: [Nuxt, Content, Learning]
 ---
 
 ## My second blog post now now now

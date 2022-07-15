@@ -1,4 +1,4 @@
-# Content v2 Minimal Starter
+Visit site: [HafMax](https://hafmax.netlify.app/)
 
 Look at the [Content documentation](https://content-v2.nuxtjs.org/) to learn more.
 

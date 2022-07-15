@@ -2,17 +2,17 @@
 
 <script setup>
 // import icon
-import { TagIcon } from "@heroicons/vue/solid";
+import { TagIcon } from '@heroicons/vue/solid';
 
 // tag list state
-const expanded = ref(false);
+const expanded = ref(true);
 
 // helper function to flatten tags array
 const flatten = (tags, key) => {
   console.log(tags);
 
   let _tags = tags
-    .map((tag) => {
+    .map(tag => {
       let _tag = tag;
       if (tag[key]) {
         let flattened = flatten(tag[key]);
@@ -33,10 +33,10 @@ const toggleExpand = () => {
 };
 
 // get only tags data from `/blog`
-const { data } = await useAsyncData("tags", () => queryContent("blog").only(["tags"]).find());
+const { data } = await useAsyncData('tags', () => queryContent('blog').only(['tags']).find());
 
 // generate array without duplicates from flattened array
-const articleTags = [...new Set(flatten(data.value, "tags"))];
+const articleTags = [...new Set(flatten(data.value, 'tags'))];
 
 console.log({ articleTags });
 </script>
@@ -71,3 +71,4 @@ console.log({ articleTags });
   @apply max-w-full;
 }
 </style>
+

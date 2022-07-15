@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss'],
   app: {
     head: {
-      titleTemplate: 'Welcome to HafMax',
+      title: 'Welcome to HafMax',
       meta: [
         // <meta name="viewport" content="width=device-width, initial-scale=1">
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
