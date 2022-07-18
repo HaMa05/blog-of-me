@@ -42,6 +42,9 @@ useHead({
           :src="`/${data.article.img}`"
           :alt="data.article.title"
           class="rounded-2xl"
+          :style="{
+            'object-position': data.article.objectPosition || 'center'
+          }"
         />
       </div>
       <h1 class="heading">{{ data.article.title }}</h1>
