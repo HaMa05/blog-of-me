@@ -3,6 +3,7 @@
 <script setup>
 // import icon
 import { TagIcon } from '@heroicons/vue/solid';
+import { BackspaceIcon } from '@heroicons/vue/solid';
 
 // tag list state
 const expanded = ref(true);
@@ -12,7 +13,7 @@ const flatten = (tags, key) => {
   console.log(tags);
 
   let _tags = tags
-    .map(tag => {
+    .map((tag) => {
       let _tag = tag;
       if (tag[key]) {
         let flattened = flatten(tag[key]);
@@ -33,7 +34,9 @@ const toggleExpand = () => {
 };
 
 // get only tags data from `/blog`
-const { data } = await useAsyncData('tags', () => queryContent('blog').only(['tags']).find());
+const { data } = await useAsyncData('tags', () =>
+  queryContent('blog').only(['tags']).find()
+);
 
 // generate array without duplicates from flattened array
 const articleTags = [...new Set(flatten(data.value, 'tags'))];
@@ -50,9 +53,14 @@ console.log({ articleTags });
     <ul class="article-tags" :class="{ expanded: expanded }">
       <!-- list out tags with links -->
       <li v-for="(tag, n) in articleTags" :key="n" class="tag">
-        <NuxtLink :to="`/blog/tags/${tag}`" class="font-semibold"> {{ tag }} </NuxtLink>
+        <NuxtLink :to="`/blog/tags/${tag}`" class="font-semibold">
+          {{ tag }}
+        </NuxtLink>
       </li>
     </ul>
+    <NuxtLink v-if="expanded" :to="`/blog`">
+      <BackspaceIcon class="icon solid" />
+    </NuxtLink>
   </div>
 </template>
 
@@ -71,4 +79,3 @@ console.log({ articleTags });
   @apply max-w-full;
 }
 </style>
-

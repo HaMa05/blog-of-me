@@ -22,8 +22,11 @@ useHead({
   <main>
     <header class="page-heading">
       <div class="wrapper">
-        <h1 class="text-5xl font-extrabold">All articles</h1>
-        <p class="font-medium text-lg">Here's a list of all my great articles about technical</p>
+        <h1 class="text-5xl font-extrabold">Bài viết</h1>
+        <p class="font-medium text-lg">
+          Toàn bộ bài viết về công nghệ, trải nghiệm và cũng như những chia sẻ của mình sau khoảng thời gian đi làm. Rất mong nhận được sự
+          góp ý, chia sẻ của mọi người.
+        </p>
       </div>
     </header>
     <section class="page-section">
