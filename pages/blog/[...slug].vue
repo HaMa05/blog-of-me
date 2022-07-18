@@ -7,7 +7,10 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
   let article = queryContent().where({ _path: path }).findOne();
   // get the surround information,
   // which is an array of documeents that come before and after the current document
-  let surround = queryContent().only(['_path', 'title', 'description']).sort({ date: 1 }).findSurround(path);
+  let surround = queryContent()
+    .only(['_path', 'title', 'description'])
+    .sort({ date: 1 })
+    .findSurround(path);
 
   return {
     article: await article,
@@ -15,11 +18,8 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
   };
 });
 
-console.log('Data: ', data);
-
 // destrucure `prev` and `next` value from data
 const [prev, next] = data.value.surround;
-console.log({ data, prev, next });
 
 // set the meta
 useHead({
@@ -38,12 +38,18 @@ useHead({
   <main id="main" class="article-main">
     <header v-if="data.article" class="article-header">
       <div class="img-cont h-72 mb-12">
-        <img :src="`/${data.article.img}`" :alt="data.article.title" class="rounded-2xl" />
+        <img
+          :src="`/${data.article.img}`"
+          :alt="data.article.title"
+          class="rounded-2xl"
+        />
       </div>
       <h1 class="heading">{{ data.article.title }}</h1>
       <p class="supporting">{{ data.article.description }}</p>
       <ul class="article-tags">
-        <li class="tag" v-for="(tag, n) in data.article.tags" :key="n">{{ tag }}</li>
+        <li class="tag" v-for="(tag, n) in data.article.tags" :key="n">
+          {{ tag }}
+        </li>
       </ul>
     </header>
     <hr />
@@ -104,4 +110,3 @@ useHead({
   @apply col-span-full md:col-span-6 md:col-start-1 md:row-start-1 prose w-full p-4 max-w-3xl m-auto;
 }
 </style>
-

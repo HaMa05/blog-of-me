@@ -10,8 +10,6 @@ const expanded = ref(true);
 
 // helper function to flatten tags array
 const flatten = (tags, key) => {
-  console.log(tags);
-
   let _tags = tags
     .map((tag) => {
       let _tag = tag;
@@ -22,8 +20,6 @@ const flatten = (tags, key) => {
       return _tag;
     })
     .flat(1);
-
-  console.log({ _tags });
 
   return _tags;
 };
@@ -40,8 +36,6 @@ const { data } = await useAsyncData('tags', () =>
 
 // generate array without duplicates from flattened array
 const articleTags = [...new Set(flatten(data.value, 'tags'))];
-
-console.log({ articleTags });
 </script>
 <template>
   <div class="tag-list" :class="{ active: expanded }">

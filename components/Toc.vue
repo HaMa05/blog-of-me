@@ -2,7 +2,7 @@
 
 <script setup>
 // define links prop
-defineProps(["links"]);
+defineProps(['links']);
 
 // flatten TOC links nested arrays to one array
 const flattenLinks = (links) => {
@@ -17,8 +17,6 @@ const flattenLinks = (links) => {
     })
     .flat(1);
 
-  console.log({ _links });
-
   return _links;
 };
 </script>
@@ -30,7 +28,11 @@ const flattenLinks = (links) => {
     </header>
     <ul class="toc-links">
       <!-- render each link with depth class -->
-      <li v-for="link of flattenLinks(links)" :key="link.id" :class="`toc-link _${link.depth}`">
+      <li
+        v-for="link of flattenLinks(links)"
+        :key="link.id"
+        :class="`toc-link _${link.depth}`"
+      >
         <a :href="`#${link.id}`">
           {{ link.text }}
         </a>
